@@ -1,0 +1,12 @@
+.footer__inscription {
+  color: #545454;
+  font-size: 18px;
+  line-height: 22px;
+  margin: 0;
+  font-weight: 400;
+}
+@media (min-width: 320px) and (max-width: 669px) {
+    .footer__inscription {
+        padding-left: 19px;
+      }
+}

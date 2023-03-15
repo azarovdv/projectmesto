@@ -1,0 +1,26 @@
+.close {
+  background-image: url(../../images/Close\ Icon.svg);
+  background-repeat: no-repeat;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  position: absolute;
+  top: -40px;
+  right: -40px;
+}
+
+@media (min-width: 320px) and (max-width: 669px) {
+  .close {
+    width: 20px;
+    height: 20px;
+    right: 0;
+    top: -36px;
+    background-size: cover;
+  }
+}
+
+.close:hover {
+  opacity: .6;
+}

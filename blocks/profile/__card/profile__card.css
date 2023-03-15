@@ -1,0 +1,18 @@
+.profile__card {
+  min-width: 336px;
+  max-height: 73px;
+  display: grid;
+  grid-template-columns: 1fr 24px;
+  column-gap: 18px;
+  align-items: center;
+}
+
+@media (min-width: 320px) and (max-width: 669px) {
+  .profile__card {
+    grid-template-columns: 189px 18px;
+    column-gap: 10px;
+    padding-bottom: 36px;
+    min-width: 282px;
+    justify-content: center;
+  }
+}
