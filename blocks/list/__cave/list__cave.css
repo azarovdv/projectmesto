@@ -1,4 +1,4 @@
-.list-item__cave {
+.list__cave {
   display: flex;
   justify-content: space-between;
   align-items: center;

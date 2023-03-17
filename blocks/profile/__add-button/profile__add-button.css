@@ -1,10 +1,10 @@
-.add-photo {
-  background-image: url(../../images/Vector+.svg);
+.profile__add-button {
+  background-image: url(../../../images/Vector+.svg);
   background-position: center;
   background-color: #000000;
   border: 2px solid #FFFFFF;
   border-radius: 2px;
-  min-width: 150px;
+  max-width: 150px;
   min-height: 50px;
   background-repeat: no-repeat;
   cursor: pointer;
@@ -12,11 +12,11 @@
 }
 
 @media (min-width: 320px) and (max-width: 669px) {
-  .add-photo {
+  .profile__add-button {
     min-width: 282px;
   }
 }
 
-.add-photo:hover {
+.profile__add-button:hover {
   opacity: .6;
 }

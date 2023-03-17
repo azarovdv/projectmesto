@@ -1,4 +1,4 @@
-.profile__editing {
+.profile__edit-button {
   background-image: url(../../../images/Vector.svg);
   background-position: center;
   background-color: #000000;
@@ -9,11 +9,12 @@
 }
 
 @media (min-width: 320px) and (max-width: 669px) {
-  .profile__editing {
+  .profile__edit-button {
     height: 18px;
+    padding: 0;
   }
 }
 
-.profile__editing:hover {
+.profile__edit-button:hover {
   opacity: .6;
 }

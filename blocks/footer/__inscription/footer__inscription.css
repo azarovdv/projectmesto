@@ -5,8 +5,15 @@
   margin: 0;
   font-weight: 400;
 }
+
+@media (min-width: 670px) and (max-width: 899px) {
+  .footer__inscription {
+    padding-left: 10px;
+  }
+}
+
 @media (min-width: 320px) and (max-width: 669px) {
-    .footer__inscription {
-        padding-left: 19px;
-      }
+  .footer__inscription {
+    padding-left: 19px;
+  }
 }

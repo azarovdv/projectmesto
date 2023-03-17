@@ -1,13 +1,25 @@
 .profile {
-  display: flex;
+  display: grid;
+  grid-template-columns: 120px 1fr 150px;
   align-items: center;
   gap: 30px;
+  padding-bottom: 50px;
+}
+
+@media (min-width: 670px) and (max-width: 899px) {
+  .profile {
+    padding-left: 10px;
+    padding-right: 10px;
+    gap: 10px;
+    padding-bottom: 36px;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 669px) {
   .profile {
+    display: flex;
     flex-direction: column;
     gap: 26px;
-    max-width: 282px;
+    padding-bottom: 36px;
   }
 }

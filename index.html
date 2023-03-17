@@ -13,73 +13,78 @@
     <img src="./images/logo.svg" alt="Логотип Место" class="header__logo">
   </header>
   <main class="content">
-    <section class="content-head">
-      <div class="profile">
-        <img src="./images/Жак.png" alt="Жак-Ив Кусто" class="profile__img">
-        <div class="profile__card">
-          <h2 class="profile__name">Жак-Ив Кусто</h2>
-          <button class="profile__editing"></button>
-          <h3 class="profile__hobby">Исследователь океана</h3>
-        </div>
+    <section class="profile">
+      <img src="./images/Жак.png" alt="Жак-Ив Кусто" class="profile__img">
+      <div class="profile__info">
+        <h1 class="profile__name">Жак-Ив Кусто</h1>
+        <button class="profile__edit-button" type="button" aria-label="Редактирование профиля"></button>
+        <p class="profile__hobby">Исследователь океана</p>
       </div>
-      <button class="add-photo"></button>
+      <button class="profile__add-button" type="button" aria-label="Добавление карточки"></button>
     </section>
     <section class="photo-grid">
       <ul class="list">
-        <li class="list-item">
-          <img src="./images/Аляска.jpeg" alt="Аляска" class="list-item__img">
-          <div class="list-item__cave">
-            <h2 class="list-item__text">Аляска</h2>
-            <button class="list-item__like list-item__like_active"></button>
-        </li>
-        <li class="list-item">
-          <img src="./images/гора Эльбрус.jpg" alt="Гора Эльбрус" class="list-item__img">
-          <div class="list-item__cave">
-            <h2 class="list-item__text">Гора Эльбрус</h2>
-            <button class="list-item__like"></button>
+        <li class="list__item">
+          <img src="./images/Аляска.jpeg" alt="Аляска" class="list__img">
+          <div class="list__cave">
+            <h2 class="list__text">Аляска</h2>
+            <button class="list__like list__like_active" type="button" aria-label="Лайк"></button>
           </div>
         </li>
-        <li class="list-item">
-          <img src="./images/гранд каньон.jpeg" alt="Гранд Каньон" class="list-item__img">
-          <div class="list-item__cave">
-            <h2 class="list-item__text">Гранд Каньон</h2>
-            <button class="list-item__like"></button>
+        <li class="list__item">
+          <img src="./images/гора_Эльбрус.jpg" alt="Гора Эльбрус" class="list__img">
+          <div class="list__cave">
+            <h2 class="list__text">Гора Эльбрус</h2>
+            <button class="list__like" type="button" aria-label="Лайк"></button>
+          </div>
         </li>
-        <li class="list-item">
-          <img src="./images/домбай.jpg" alt="Домбай" class="list-item__img">
-          <div class="list-item__cave">
-            <h2 class="list-item__text">Домбай</h2>
-            <button class="list-item__like"></button>
+        <li class="list__item">
+          <img src="./images/гранд_каньон.jpeg" alt="Гранд Каньон" class="list__img">
+          <div class="list__cave">
+            <h2 class="list__text">Гранд Каньон</h2>
+            <button class="list__like" type="button" aria-label="Лайк"></button>
+          </div>
         </li>
-        <li class="list-item">
-          <img src="./images/карелия.jpeg" alt="Карелия" class="list-item__img">
-          <div class="list-item__cave">
-            <h2 class="list-item__text">Карелия</h2>
-            <button class="list-item__like"></button>
+        <li class="list__item">
+          <img src="./images/dombay.jpg" alt="Домбай" class="list__img">
+          <div class="list__cave">
+            <h2 class="list__text">Домбай</h2>
+            <button class="list__like" type="button" aria-label="Лайк"></button>
+          </div>
         </li>
-        <li class="list-item">
-          <img src="./images/новая зеландия.webp" alt="Новая Зеландия" class="list-item__img">
-          <div class="list-item__cave">
-            <h2 class="list-item__text">Новая Зеландия</h2>
-            <button class="list-item__like"></button>
+        <li class="list__item">
+          <img src="./images/карелия.jpeg" alt="Карелия" class="list__img">
+          <div class="list__cave">
+            <h2 class="list__text">Карелия</h2>
+            <button class="list__like" type="button" aria-label="Лайк"></button>
+          </div>
+        </li>
+        <li class="list__item">
+          <img src="./images/новая_зеландия.webp" alt="Новая Зеландия" class="list__img">
+          <div class="list__cave">
+            <h2 class="list__text">Новая Зеландия</h2>
+            <button class="list__like" type="button" aria-label="Лайк"></button>
+          </div>
         </li>
       </ul>
     </section>
   </main>
-  <div class="popup popup_opened">
-    <div class="popup__container">
-      <button class="close"></button>
-      <p class="popup__title">Редактировать профиль</p>
-      <fieldset class="form-handler">
-        <input type="text" class="form-item">
-        <input type="text" class="form-item">
-        <button type="submit" class="form-button">Сохранить</button>
-      </fieldset>
-    </div>
-  </div>
   <footer class="footer">
     <p class="footer__inscription">&COPY; 2020 Mesto Russia</p>
   </footer>
+  <div class="popup popup_opened">
+    <div class="popup__container">
+      <button class="popup__close" type="button" aria-label="Закрыть окно"></button>
+      <h3 class="popup__title">Редактировать профиль</h3>
+      <form name="profile-form" class="popup__form">
+        <div class="popup__enter">
+          <input type="text" name="name" class="popup__item popup__item_type_name" placeholder="Введите свое имя">
+          <input type="text" name="hobby" class="popup__item popup__item_type_hobby" placeholder="Введите свое хобби">
+        </div>
+        <button type="submit" class="popup__form-button">Сохранить</button>
+      </form>
+    </div>
+  </div>
 </body>
 
 </html>

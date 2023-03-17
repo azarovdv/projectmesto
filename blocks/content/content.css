@@ -5,8 +5,10 @@
   max-width: 880px;
   padding-top: 40px;
 }
+
 @media (min-width: 320px) and (max-width: 669px) {
-    .content {
-        max-width: 282px;
-      }
+  .content {
+    max-width: 282px;
+    padding-top: 42px;
+  }
 }

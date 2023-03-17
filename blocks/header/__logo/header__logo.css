@@ -1,9 +1,16 @@
 .header__logo {
   width: 142px;
 }
+
+@media (min-width: 670px) and (max-width: 899px) {
+  .header__logo {
+    padding-left: 10px;
+  }
+}
+
 @media (min-width: 320px) and (max-width: 669px) {
-    .header__logo {
-        width: 104px;
-        padding-left: 27px;
-      }
+  .header__logo {
+    width: 104px;
+    padding-left: 27px;
+  }
 }

@@ -3,16 +3,17 @@
   font-size: 18px;
   line-height: 22px;
   margin: 0;
-  max-height: 18px;
   max-width: 294px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  padding-bottom: 5px;
 }
+
 @media (min-width: 320px) and (max-width: 669px) {
-    .profile__hobby {
-        font-size: 14px;
-        line-height: 27px;
-      }
+  .profile__hobby {
+    font-size: 14px;
+    line-height: 27px;
+    display: flex;
+    justify-content: center;
+  }
 }
