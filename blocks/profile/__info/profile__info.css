@@ -10,9 +10,8 @@
   .profile__info {
     grid-template-columns: 189px 18px;
     min-width: 282px;
-    justify-content: center;
-    padding-bottom: 10px;
-    gap: 14px 10px;
+    padding-bottom: 5px;
+    gap: 0px 9px;
     padding-right: 21px;
     box-sizing: border-box;
     justify-content: end;

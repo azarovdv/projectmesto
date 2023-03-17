@@ -19,7 +19,7 @@
   .profile {
     display: flex;
     flex-direction: column;
-    gap: 26px;
+    gap: 23px;
     padding-bottom: 36px;
   }
 }

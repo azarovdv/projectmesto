@@ -13,7 +13,8 @@
   .profile__hobby {
     font-size: 14px;
     line-height: 27px;
-    display: flex;
-    justify-content: center;
+    padding-top: 4px;
+    max-width: 170px;
+    margin: 0 auto;
   }
 }
