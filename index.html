@@ -24,67 +24,69 @@
     </section>
     <section class="photo-grid">
       <ul class="list">
-        <li class="list__item">
-          <img src="./images/Аляска.jpeg" alt="Аляска" class="list__img">
-          <div class="list__cave">
-            <h2 class="list__text">Аляска</h2>
-            <button class="list__like list__like_active" type="button" aria-label="Лайк"></button>
-          </div>
-        </li>
-        <li class="list__item">
-          <img src="./images/гора_Эльбрус.jpg" alt="Гора Эльбрус" class="list__img">
-          <div class="list__cave">
-            <h2 class="list__text">Гора Эльбрус</h2>
-            <button class="list__like" type="button" aria-label="Лайк"></button>
-          </div>
-        </li>
-        <li class="list__item">
-          <img src="./images/гранд_каньон.jpeg" alt="Гранд Каньон" class="list__img">
-          <div class="list__cave">
-            <h2 class="list__text">Гранд Каньон</h2>
-            <button class="list__like" type="button" aria-label="Лайк"></button>
-          </div>
-        </li>
-        <li class="list__item">
-          <img src="./images/dombay.jpg" alt="Домбай" class="list__img">
-          <div class="list__cave">
-            <h2 class="list__text">Домбай</h2>
-            <button class="list__like" type="button" aria-label="Лайк"></button>
-          </div>
-        </li>
-        <li class="list__item">
-          <img src="./images/карелия.jpeg" alt="Карелия" class="list__img">
-          <div class="list__cave">
-            <h2 class="list__text">Карелия</h2>
-            <button class="list__like" type="button" aria-label="Лайк"></button>
-          </div>
-        </li>
-        <li class="list__item">
-          <img src="./images/новая_зеландия.webp" alt="Новая Зеландия" class="list__img">
-          <div class="list__cave">
-            <h2 class="list__text">Новая Зеландия</h2>
-            <button class="list__like" type="button" aria-label="Лайк"></button>
-          </div>
-        </li>
+
       </ul>
     </section>
   </main>
   <footer class="footer">
     <p class="footer__inscription">&COPY; 2020 Mesto Russia</p>
   </footer>
-  <div class="popup">
+
+  <!-- Попап профайл -->
+  <div class="popup popup__ava">
     <div class="popup__container">
       <button class="popup__close" type="button" aria-label="Закрыть окно"></button>
       <h3 class="popup__title">Редактировать профиль</h3>
       <form name="profile-form" class="popup__form">
         <div class="popup__enter">
-          <input type="text" name="name" class="popup__item popup__item_type_name" placeholder="Введите свое имя">
-          <input type="text" name="hobby" class="popup__item popup__item_type_hobby" placeholder="Введите свое хобби">
+          <input autocomplete=off type="text" name="name" class="popup__item popup__item_type_name"
+            placeholder="Введите свое имя">
+          <input autocomplete=off type="text" name="hobby" class="popup__item popup__item_type_hobby"
+            placeholder="Введите свое хобби">
         </div>
         <button type="submit" class="popup__form-button">Сохранить</button>
       </form>
     </div>
   </div>
+
+  <!-- Попап добавление карточки -->
+  <div class="popup popup__add-cards ">
+    <div class="popup__container">
+      <button class="popup__close" type="button" aria-label="Закрыть окно"></button>
+      <h3 class="popup__title">Новое место</h3>
+      <form name="new-card" class="popup__form">
+        <div class="popup__enter">
+          <input autocomplete=off type="text" name="name" class="popup__item popup__item_type_name-card"
+            placeholder="Название">
+          <input autocomplete=off type="url" name="link" class="popup__item popup__item_type_link"
+            placeholder="Ссылка на картинку">
+        </div>
+        <button type="submit" class="popup__form-button">Создать</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Попап открытия карточки -->
+  <div class="popup popup__open-cards popup_dark">
+    <figure class="popup__image-container">
+      <button class="popup__close" type="button" aria-label="Закрыть окно"></button>
+      <img src="" alt="" class="popup__image">
+      <figcaption class="caption"></figcaption>
+    </figure>
+  </div>
+
+  <!-- Шаблон для карточек -->
+  <template id='template-list-item'>
+    <li class="list__item">
+      <img src="" alt="" class="list__img">
+      <button class="trash" type="button" aria-label="Корзина"></button>
+      <div class="list__cave">
+        <h2 class="list__text"></h2>
+        <button class="list__like" type="button" aria-label="Лайк"></button>
+      </div>
+    </li>
+  </template>
+  <script src="./script.js"></script>
 </body>
 
 </html>
