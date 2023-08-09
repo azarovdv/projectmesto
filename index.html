@@ -40,9 +40,9 @@
       <form name="profile-form" class="popup__form">
         <div class="popup__enter">
           <input autocomplete=off type="text" name="name" class="popup__item popup__item_type_name"
-            placeholder="Введите свое имя">
+            placeholder="Введите свое имя" required>
           <input autocomplete=off type="text" name="hobby" class="popup__item popup__item_type_hobby"
-            placeholder="Введите свое хобби">
+            placeholder="Введите свое хобби" required>
         </div>
         <button type="submit" class="popup__form-button">Сохранить</button>
       </form>
@@ -57,9 +57,9 @@
       <form name="new-card" class="popup__form">
         <div class="popup__enter">
           <input autocomplete=off type="text" name="name" class="popup__item popup__item_type_name-card"
-            placeholder="Название">
+            placeholder="Название" required>
           <input autocomplete=off type="url" name="link" class="popup__item popup__item_type_link"
-            placeholder="Ссылка на картинку">
+            placeholder="Ссылка на картинку" required>
         </div>
         <button type="submit" class="popup__form-button">Создать</button>
       </form>
@@ -67,7 +67,7 @@
   </div>
 
   <!-- Попап открытия карточки -->
-  <div class="popup popup__open-cards popup_dark">
+  <div class="popup popup__open-cards">
     <figure class="popup__image-container">
       <button class="popup__close" type="button" aria-label="Закрыть окно"></button>
       <img src="" alt="" class="popup__image">
@@ -86,6 +86,7 @@
       </div>
     </li>
   </template>
+  <script src="./cards.js"></script>
   <script src="./script.js"></script>
 </body>
 
