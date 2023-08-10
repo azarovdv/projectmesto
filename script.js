@@ -52,6 +52,8 @@ function closePopup(item) {
 
 // открыть попап профайла
 editButton.addEventListener('click', function () {
+  popupName.value = nameInput.textContent;
+  popupHobby.value = hobbyInput.textContent;
   openPopup(popupAva);
 });
 
@@ -111,8 +113,7 @@ initialCards.forEach((item) => {
 });
 
 
-popupName.value = nameInput.textContent;
-popupHobby.value = hobbyInput.textContent;
+
 
 
 // редактирование данных профайла
