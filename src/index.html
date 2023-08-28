@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mesto</title>
+  </head>
+
+  <body class="page">
+    <header class="header">
+      <img src="<%=require("./images/logo.svg")%>" alt="Логотип Место"
+      class="header__logo" />
+    </header>
+    <main class="content">
+      <section class="profile">
+        <img src="<%=require("./images/Жак.png")%>" alt="Жак-Ив Кусто"
+        class="profile__img" />
+        <div class="profile__info">
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <button
+            class="profile__edit-button"
+            type="button"
+            aria-label="Редактирование профиля"
+          ></button>
+          <p class="profile__hobby">Исследователь океана</p>
+        </div>
+        <button
+          class="profile__add-button"
+          type="button"
+          aria-label="Добавление карточки"
+        ></button>
+      </section>
+      <section class="photo-grid">
+        <ul class="list"></ul>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__inscription">&COPY; 2020 Mesto Russia</p>
+    </footer>
+
+    <!-- Попап профайл -->
+    <div class="popup popup__ava">
+      <div class="popup__container">
+        <button
+          class="popup__close"
+          type="button"
+          aria-label="Закрыть окно"
+        ></button>
+        <h3 class="popup__title">Редактировать профиль</h3>
+        <form name="profileForm" class="popup__form" novalidate>
+          <div class="popup__enter">
+            <input
+              autocomplete="off"
+              type="text"
+              id="name"
+              name="name"
+              class="popup__item popup__item_type_name"
+              placeholder="Введите свое имя"
+              required
+              minlength="2"
+              maxlength="40"
+              pattern="^[а-яА-ЯёЁa-zA-Z\s\-]+$"
+              data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"
+            />
+            <span class="name-error popup__item-error"></span>
+            <input
+              autocomplete="off"
+              type="text"
+              id="hobby"
+              name="hobby"
+              class="popup__item popup__item_type_hobby"
+              placeholder="Введите свое хобби"
+              required
+              minlength="2"
+              maxlength="200"
+            />
+            <span class="hobby-error popup__item-error"
+              >Некорректные данные</span
+            >
+          </div>
+          <button type="submit" class="popup__form-button">Сохранить</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Попап добавление карточки -->
+    <div class="popup popup__add-cards">
+      <div class="popup__container">
+        <button
+          class="popup__close"
+          type="button"
+          aria-label="Закрыть окно"
+        ></button>
+        <h3 class="popup__title">Новое место</h3>
+        <form name="newCard" class="popup__form" novalidate>
+          <div class="popup__enter">
+            <input
+              autocomplete="off"
+              type="text"
+              id="title"
+              name="title"
+              class="popup__item popup__item_type_name-card"
+              placeholder="Название"
+              required
+              minlength="2"
+              maxlength="30"
+              pattern="^[а-яА-ЯёЁa-zA-Z\s\-]+$"
+              data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"
+            />
+            <span class="title-error popup__item-error"></span>
+            <input
+              autocomplete="off"
+              type="url"
+              id="link"
+              name="link"
+              class="popup__item popup__item_type_link"
+              placeholder="Ссылка на картинку"
+              required
+            />
+            <span class="link-error popup__item-error"></span>
+          </div>
+          <button type="submit" class="popup__form-button">Создать</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Попап открытия карточки -->
+    <div class="popup popup__open-cards">
+      <figure class="popup__image-container">
+        <button
+          class="popup__close"
+          type="button"
+          aria-label="Закрыть окно"
+        ></button>
+        <img src="" alt="" class="popup__image" />
+        <figcaption class="caption"></figcaption>
+      </figure>
+    </div>
+
+    <!-- Шаблон для карточек -->
+    <template id="template-list-item">
+      <li class="list__item">
+        <img src="" alt="" class="list__img" />
+        <button class="trash" type="button" aria-label="Корзина"></button>
+        <div class="list__cave">
+          <h2 class="list__text"></h2>
+          <button class="list__like" type="button" aria-label="Лайк"></button>
+        </div>
+      </li>
+    </template>
+  </body>
+</html>

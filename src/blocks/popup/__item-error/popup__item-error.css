@@ -1,0 +1,8 @@
+.popup__item-error {
+  display: flex;
+  color: #f00;
+  font-size: 12px;
+  min-height: 28px;
+  opacity: 0;
+  margin-top: 5px;
+}
