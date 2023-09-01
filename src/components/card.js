@@ -1,5 +1,5 @@
 import { initialCards } from "./cards.js";
-import { closePopup } from "./utils.js";
+import { openPopup, closePopup } from "./utils.js";
 import { content } from "./constans.js";
 
 const listItemTemplate = document.querySelector("#template-list-item").content;
@@ -22,18 +22,18 @@ function createCard(nameValue, linkValue) {
   const listItemElement = listItemTemplate
     .querySelector(".list__item")
     .cloneNode(true);
+  const img = listItemElement.querySelector(".list__img");
   listItemElement.querySelector(".list__text").textContent = nameValue;
-  listItemElement.querySelector(".list__img").src = linkValue;
-  listItemElement.querySelector(".list__img").alt = nameValue;
+  img.src = linkValue;
+  img.alt = nameValue;
 
-  listItemElement
-    .querySelector(".list__img")
-    .addEventListener("click", function () {
-      popupOpenCard.classList.add("popup_opened");
+  img.addEventListener("click", function () {
+    openPopup(popupOpenCard);
 
-      imgOpenCard.src = linkValue;
-      captionOpenCard.textContent = nameValue;
-    });
+    imgOpenCard.src = linkValue;
+    imgOpenCard.alt = nameValue;
+    captionOpenCard.textContent = nameValue;
+  });
 
   return listItemElement;
 }
@@ -79,6 +79,5 @@ export {
   listElement,
   content,
   addCardSubmit,
-  closePopup,
   handlLikeCard,
 };
