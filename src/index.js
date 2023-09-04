@@ -1,4 +1,5 @@
 import "./index.css";
+
 import {
   showInputError,
   hideInputError,
@@ -9,6 +10,7 @@ import {
   enableValidation,
   clearFormError,
 } from "./components/validate.js";
+
 import {
   deleteCard,
   listItemTemplate,
@@ -26,16 +28,24 @@ import {
   addCardSubmit,
   handlLikeCard,
 } from "./components/card.js";
+
 import { openPopup, closePopup } from "./components/utils.js";
+
 import {
   handleFormSubmit,
   ProfileName,
   ProfileHobby,
 } from "./components/modal.js";
 
+import {
+  popupProfile,
+  popupNameProfile,
+  popupHobbyProfile,
+} from "./components/constans.js";
+
 const popups = document.querySelectorAll(".popup");
 
-const popupProfile = document.querySelector(".popup__ava");
+//const popupProfile = document.querySelector(".popup__ava");
 
 const formElementProfile = popupProfile.querySelector(".popup__form");
 const formElementCard = popupAddCards.querySelector(".popup__form");
@@ -43,8 +53,8 @@ const formElementCard = popupAddCards.querySelector(".popup__form");
 const editProfileButton = content.querySelector(".profile__edit-button");
 const newCardButton = content.querySelector(".profile__add-button");
 
-const popupNameProfile = popupProfile.querySelector(".popup__item_type_name");
-const popupHobbyProfile = popupProfile.querySelector(".popup__item_type_hobby");
+//const popupNameProfile = popupProfile.querySelector(".popup__item_type_name");
+//const popupHobbyProfile = popupProfile.querySelector(".popup__item_type_hobby");
 
 // открыть попап профайла
 editProfileButton.addEventListener("click", function () {

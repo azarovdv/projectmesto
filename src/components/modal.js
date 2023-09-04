@@ -1,4 +1,11 @@
-import { content } from "./constans.js";
+import {
+  content,
+  popupNameProfile,
+  popupHobbyProfile,
+  popupProfile,
+} from "./constans.js";
+
+import { closePopup } from "./utils.js";
 
 const ProfileName = content.querySelector(".profile__name");
 const ProfileHobby = content.querySelector(".profile__hobby");

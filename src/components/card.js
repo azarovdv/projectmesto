@@ -9,6 +9,7 @@ const imgOpenCard = popupOpenCard.querySelector(".popup__image");
 const captionOpenCard = popupOpenCard.querySelector(".caption");
 const nameCard = popupAddCards.querySelector(".popup__item_type_name-card");
 const linkCard = popupAddCards.querySelector(".popup__item_type_link");
+const btnInactive = popupAddCards.querySelector(".popup__form-button");
 
 const listElement = content.querySelector(".list");
 
@@ -51,6 +52,9 @@ function addCardSubmit(evt) {
   renderCard(nameCard.value, linkCard.value);
 
   closePopup(popupAddCards);
+
+  btnInactive.classList.add("popup__form-button_inactive");
+
   evt.target.reset();
 }
 
