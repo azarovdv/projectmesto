@@ -12,7 +12,6 @@ import {
 } from "./components/validate.js";
 
 import {
-  deleteCard,
   listItemTemplate,
   createCard,
   popupOpenCard,
@@ -23,18 +22,16 @@ import {
   popupAddCards,
   arrCards,
   renderCard,
-  listElement,
   content,
   addCardSubmit,
-  handlLikeCard,
 } from "./components/card.js";
 
 import { openPopup, closePopup } from "./components/utils.js";
 
 import {
-  handleFormSubmit,
-  ProfileName,
-  ProfileHobby,
+  handleProfileFormSubmit,
+  profileName,
+  profileHobby,
 } from "./components/modal.js";
 
 import {
@@ -45,22 +42,17 @@ import {
 
 const popups = document.querySelectorAll(".popup");
 
-//const popupProfile = document.querySelector(".popup__ava");
-
 const formElementProfile = popupProfile.querySelector(".popup__form");
 const formElementCard = popupAddCards.querySelector(".popup__form");
 
 const editProfileButton = content.querySelector(".profile__edit-button");
 const newCardButton = content.querySelector(".profile__add-button");
 
-//const popupNameProfile = popupProfile.querySelector(".popup__item_type_name");
-//const popupHobbyProfile = popupProfile.querySelector(".popup__item_type_hobby");
-
 // открыть попап профайла
 editProfileButton.addEventListener("click", function () {
   clearFormError();
-  popupNameProfile.value = ProfileName.textContent;
-  popupHobbyProfile.value = ProfileHobby.textContent;
+  popupNameProfile.value = profileName.textContent;
+  popupHobbyProfile.value = profileHobby.textContent;
   openPopup(popupProfile);
 });
 
@@ -81,27 +73,12 @@ popups.forEach((popup) => {
   });
 });
 
-//делегирование лайка
-listElement.addEventListener("click", function (evt) {
-  if (evt.target.classList.contains("list__like")) {
-    handlLikeCard(evt);
-  }
-});
-
-//делигирование удаления карточки
-listElement.addEventListener("click", function (evt) {
-  if (evt.target.classList.contains("trash")) {
-    deleteCard(evt);
-  }
-});
-
 // сохрать данные профайла
-formElementProfile.addEventListener("submit", handleFormSubmit);
+formElementProfile.addEventListener("submit", handleProfileFormSubmit);
 
 // сохранить карточку
 formElementCard.addEventListener("submit", (evt) => {
   addCardSubmit(evt);
-  formElementCard.reset();
 });
 
 // настройки объектом

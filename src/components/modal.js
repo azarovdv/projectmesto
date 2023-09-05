@@ -7,17 +7,17 @@ import {
 
 import { closePopup } from "./utils.js";
 
-const ProfileName = content.querySelector(".profile__name");
-const ProfileHobby = content.querySelector(".profile__hobby");
+const profileName = content.querySelector(".profile__name");
+const profileHobby = content.querySelector(".profile__hobby");
 
 // редактирование данных профайла
-function handleFormSubmit(evt) {
+function handleProfileFormSubmit(evt) {
   evt.preventDefault();
 
-  ProfileName.textContent = popupNameProfile.value;
-  ProfileHobby.textContent = popupHobbyProfile.value;
+  profileName.textContent = popupNameProfile.value;
+  profileHobby.textContent = popupHobbyProfile.value;
 
   closePopup(popupProfile);
 }
 
-export { handleFormSubmit, ProfileName, ProfileHobby };
+export { handleProfileFormSubmit, profileName, profileHobby };

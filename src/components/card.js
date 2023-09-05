@@ -9,7 +9,6 @@ const imgOpenCard = popupOpenCard.querySelector(".popup__image");
 const captionOpenCard = popupOpenCard.querySelector(".caption");
 const nameCard = popupAddCards.querySelector(".popup__item_type_name-card");
 const linkCard = popupAddCards.querySelector(".popup__item_type_link");
-const btnInactive = popupAddCards.querySelector(".popup__form-button");
 
 const listElement = content.querySelector(".list");
 
@@ -27,6 +26,14 @@ function createCard(nameValue, linkValue) {
   listItemElement.querySelector(".list__text").textContent = nameValue;
   img.src = linkValue;
   img.alt = nameValue;
+
+  //лайк
+  listItemElement
+    .querySelector(".list__like")
+    .addEventListener("click", handlLikeCard);
+
+  //удалить
+  listItemElement.querySelector(".trash").addEventListener("click", deleteCard);
 
   img.addEventListener("click", function () {
     openPopup(popupOpenCard);
@@ -53,7 +60,8 @@ function addCardSubmit(evt) {
 
   closePopup(popupAddCards);
 
-  btnInactive.classList.add("popup__form-button_inactive");
+  evt.submitter.classList.add("popup__form-button_inactive");
+  evt.submitter.disabled = true;
 
   evt.target.reset();
 }
@@ -69,7 +77,6 @@ function handlLikeCard(evt) {
 }
 
 export {
-  deleteCard,
   listItemTemplate,
   createCard,
   popupOpenCard,
@@ -80,8 +87,6 @@ export {
   popupAddCards,
   arrCards,
   renderCard,
-  listElement,
   content,
   addCardSubmit,
-  handlLikeCard,
 };
