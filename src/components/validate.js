@@ -130,13 +130,4 @@ function clearFormError() {
   });
 }
 
-export {
-  showInputError,
-  hideInputError,
-  isValid,
-  hasInvalidInput,
-  toggleButtonState,
-  setEventListeners,
-  enableValidation,
-  clearFormError,
-};
+export { enableValidation, clearFormError };

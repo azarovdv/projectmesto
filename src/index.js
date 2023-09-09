@@ -1,55 +1,50 @@
 import "./index.css";
 
-import {
-  showInputError,
-  hideInputError,
-  isValid,
-  hasInvalidInput,
-  toggleButtonState,
-  setEventListeners,
-  enableValidation,
-  clearFormError,
-} from "./components/validate.js";
+import { enableValidation, clearFormError } from "./components/validate.js";
 
-import {
-  listItemTemplate,
-  createCard,
-  popupOpenCard,
-  imgOpenCard,
-  captionOpenCard,
-  nameCard,
-  linkCard,
-  popupAddCards,
-  arrCards,
-  renderCard,
-  content,
-  addCardSubmit,
-} from "./components/card.js";
+import { popupAddCards, content, addCardSubmit } from "./components/card.js";
 
 import { openPopup, closePopup } from "./components/utils.js";
 
 import {
   handleProfileFormSubmit,
+  editPhotoAva,
   profileName,
   profileHobby,
+  imgAva,
 } from "./components/modal.js";
 
 import {
   popupProfile,
   popupNameProfile,
   popupHobbyProfile,
+  popupAva,
 } from "./components/constans.js";
+
+import { getUser } from "./api.js";
 
 const popups = document.querySelectorAll(".popup");
 
 const formElementProfile = popupProfile.querySelector(".popup__form");
 const formElementCard = popupAddCards.querySelector(".popup__form");
+const formElementAva = popupAva.querySelector(".popup__form");
 
 const editProfileButton = content.querySelector(".profile__edit-button");
 const newCardButton = content.querySelector(".profile__add-button");
+const editAvaButton = content.querySelector(".profile__ava-button");
+
+getUser()
+  .then((res) => {
+    const { name, about, avatar, _id } = res;
+    window.userId = _id;
+    profileName.textContent = name;
+    profileHobby.textContent = about;
+    imgAva.src = avatar;
+  })
+  .catch((err) => console.log(err));
 
 // открыть попап профайла
-editProfileButton.addEventListener("click", function () {
+editProfileButton.addEventListener("click", () => {
   clearFormError();
   popupNameProfile.value = profileName.textContent;
   popupHobbyProfile.value = profileHobby.textContent;
@@ -57,8 +52,13 @@ editProfileButton.addEventListener("click", function () {
 });
 
 //открыть попап добавления карточек
-newCardButton.addEventListener("click", function () {
+newCardButton.addEventListener("click", () => {
   openPopup(popupAddCards);
+});
+
+//открыть попап изменение авы
+editAvaButton.addEventListener("click", () => {
+  openPopup(popupAva);
 });
 
 // закрытие ВСЕХ попапов по Х и overlay
@@ -77,11 +77,12 @@ popups.forEach((popup) => {
 formElementProfile.addEventListener("submit", handleProfileFormSubmit);
 
 // сохранить карточку
-formElementCard.addEventListener("submit", (evt) => {
-  addCardSubmit(evt);
-});
+formElementCard.addEventListener("submit", addCardSubmit);
 
-// настройки объектом
+// сохранить аву
+formElementAva.addEventListener("submit", editPhotoAva);
+
+//настройки объектом
 enableValidation({
   formSelector: ".popup__form",
   inputSelector: ".popup__item",
