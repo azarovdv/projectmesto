@@ -1,4 +1,4 @@
-import { openPopup, closePopup } from "./utils.js";
+import { openPopup, closePopup, renderLoading } from "./utils.js";
 import { content } from "./constans.js";
 
 import {
@@ -7,7 +7,7 @@ import {
   setLike,
   deleteLike,
   removeCard,
-} from "../api.js";
+} from "./api.js";
 
 const listItemTemplate = document.querySelector("#template-list-item").content;
 const popupOpenCard = document.querySelector(".popup__open-cards");
@@ -80,7 +80,7 @@ function renderCard(info) {
 // добавление карточки
 function addCardSubmit(evt) {
   evt.preventDefault();
-  evt.submitter.textContent = "Сохранение...";
+  renderLoading(true, evt.submitter);
 
   createNewCard(nameCard.value, linkCard.value)
     .then((res) => {
@@ -89,38 +89,30 @@ function addCardSubmit(evt) {
     })
     .catch((err) => console.log(err))
     .finally(() => {
-      evt.submitter.textContent = "Создать";
+      renderLoading(false, evt.submitter, "Создать");
       evt.submitter.classList.add("popup__form-button_inactive");
       evt.submitter.disabled = true;
       evt.target.reset();
     });
 }
 
-// карточки с сервера
-getInitialsCards()
-  .then((res) => {
-    res.forEach((item) => {
-      renderCard(item);
-    });
-  })
-  .catch((err) => console.log(err));
-
 //лайк
 function handlLikeCard(evt, id, likesElement) {
   if (evt.target.classList.contains("list__like-button_active")) {
     deleteLike(id)
       .then((res) => {
+        evt.target.classList.toggle("list__like-button_active");
         likesElement.textContent = res.likes.length;
       })
       .catch((err) => console.log(err));
   } else {
     setLike(id)
       .then((res) => {
+        evt.target.classList.toggle("list__like-button_active");
         likesElement.textContent = res.likes.length;
       })
       .catch((err) => console.log(err));
   }
-  evt.target.classList.toggle("list__like-button_active");
 }
 
-export { popupAddCards, content, addCardSubmit };
+export { popupAddCards, content, addCardSubmit, renderCard };

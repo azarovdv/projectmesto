@@ -17,4 +17,8 @@ function closeByEscape(evt) {
   }
 }
 
-export { openPopup, closePopup };
+function renderLoading(isLoading, element, initialText = "Сохранить") {
+  element.textContent = isLoading ? "Сохранение..." : initialText;
+}
+
+export { openPopup, closePopup, renderLoading };

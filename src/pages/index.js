@@ -1,10 +1,15 @@
 import "./index.css";
 
-import { enableValidation, clearFormError } from "./components/validate.js";
+import { enableValidation, clearFormError } from "../components/validate.js";
 
-import { popupAddCards, content, addCardSubmit } from "./components/card.js";
+import {
+  popupAddCards,
+  content,
+  addCardSubmit,
+  renderCard,
+} from "../components/card.js";
 
-import { openPopup, closePopup } from "./components/utils.js";
+import { openPopup, closePopup } from "../components/utils.js";
 
 import {
   handleProfileFormSubmit,
@@ -12,16 +17,16 @@ import {
   profileName,
   profileHobby,
   imgAva,
-} from "./components/modal.js";
+} from "../components/modal.js";
 
 import {
   popupProfile,
   popupNameProfile,
   popupHobbyProfile,
   popupAva,
-} from "./components/constans.js";
+} from "../components/constans.js";
 
-import { getUser } from "./api.js";
+import { getUser, getInitialsCards } from "../components/api.js";
 
 const popups = document.querySelectorAll(".popup");
 
@@ -33,13 +38,28 @@ const editProfileButton = content.querySelector(".profile__edit-button");
 const newCardButton = content.querySelector(".profile__add-button");
 const editAvaButton = content.querySelector(".profile__ava-button");
 
-getUser()
-  .then((res) => {
-    const { name, about, avatar, _id } = res;
+const removeDisabledAttrButton = (popup) => {
+  const button = popup.querySelector(".popup__form-button");
+  if (button.hasAttribute("disabled")) {
+    button.removeAttribute("disabled");
+  }
+};
+
+Promise.all([getUser(), getInitialsCards()])
+  .then((values) => {
+    const [userData, cardsData] = values;
+
+    const { name, about, avatar, _id } = userData;
     window.userId = _id;
     profileName.textContent = name;
     profileHobby.textContent = about;
     imgAva.src = avatar;
+
+    cardsData.forEach((item) => {
+      renderCard(item);
+    });
+
+    return values;
   })
   .catch((err) => console.log(err));
 
@@ -49,6 +69,7 @@ editProfileButton.addEventListener("click", () => {
   popupNameProfile.value = profileName.textContent;
   popupHobbyProfile.value = profileHobby.textContent;
   openPopup(popupProfile);
+  removeDisabledAttrButton(popupProfile);
 });
 
 //открыть попап добавления карточек
